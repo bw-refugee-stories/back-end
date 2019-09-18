@@ -1,0 +1,46 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "back-end for refugee stories",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "cross-env DB-ENV=testing jest --verbose --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bw-refugee-stories/back-end.git"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [
+    "refugee",
+    "stories",
+    "build",
+    "week"
+  ],
+  "author": "IX Lives",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bw-refugee-stories/back-end/issues"
+  },
+  "homepage": "https://github.com/bw-refugee-stories/back-end#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.1",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "helmet": "^3.20.0",
+    "jest": "^24.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.19.2",
+    "sqlite3": "^4.1.0",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
