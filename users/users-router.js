@@ -17,7 +17,8 @@ router.post("/register", (req, res) => {
       // a jwt should be generated
       console.log(saved);
       const token = generateToken(saved);
-      res.status(201).json(username, token);
+      const username = saved.username
+      res.status(201).json({username, token});
     })
     .catch(error => {
       res.status(500).json(error);
