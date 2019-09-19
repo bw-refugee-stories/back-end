@@ -15,7 +15,7 @@ router.post("/register", (req, res) => {
   Users.add(user)
     .then(saved => {
       // a jwt should be generated
-      console.log(saved);
+      //   console.log(saved);
       const token = generateToken(saved);
       const username = saved.username
       res.status(201).json({username, token});
