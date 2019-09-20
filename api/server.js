@@ -5,8 +5,12 @@ const cors = require('cors')
 const server = express()
 
 server.use(express.json())
-server.use(cors())
 server.use(helmet())
+var corsOptions = {
+    credentials: true,
+}
+server.use(cors(corsOptions))
+server.options('*', cors())
 
 const usersRouter = require('../users/users-router')
 

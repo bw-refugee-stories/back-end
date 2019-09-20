@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const secrets = require("../config/secrets");
 const jwt = require("jsonwebtoken");
 
-const Stories = require("./stories-model");
+const Comments = require("./comments-model");
 
 router.get('/', (req, res) => {
 
