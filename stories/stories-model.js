@@ -6,7 +6,10 @@ module.exports = {
     findById,
     add,
     remove,
-    edit
+    edit,
+    getComments,
+    addComment,
+    removeComment
 }
 
 function find() {
@@ -42,4 +45,23 @@ function edit(changes, id) {
         .then(ids => {
             return findById(id)
         })
+}
+
+function getComments(storyId) {
+    return db('comments as c')
+        .join('stories as s', 's.id', 'c.story_id')
+        .select('c.contents', 's.title')
+        .where({story_id: storyId})
+        .orderBy('c.id')
+}
+
+function addComment(comment) {
+    return db('comments as c')
+        .insert(comment)
+}
+
+function removeComment(commentId) {
+    return db('comments')
+        .where({id: commentId})
+        .del()
 }

@@ -97,4 +97,49 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+////// ****** ========= ********* \\\\\\\
+////// ****** Comments Section ********* \\\\\\\
+
+
+// Requires nothing, returns json object of comments
+router.get('/:id/comments', (req, res) => {
+    const {id} = req.params
+
+    Stories.getComments(id)
+        .then(comments => {
+            res.status(200).json(comments)
+        })
+        .catch(err => {
+            res.status(500).json({message: "Error getting comments", err})
+        })
+})
+
+//requires contents and story_id in the req.body
+//returns a 1 when comment is created
+router.post('/:id/comments', (req, res) => {
+    const {id} = req.params
+    const commentData = req.body
+    Stories.addComment(commentData)
+        .then(comment => {
+            res.status(201).json(comment)
+        })
+        .catch(err => {
+            res.status(500).json({message: "Error adding comment", err})
+        })
+})
+
+//stories/comments/:id
+//returns 'deleted' and 1 if successful
+router.delete('/comments/:id', (req, res) => {
+    const {id} = req.params
+
+    Stories.removeComment(id)
+        .then(comment => {
+            res.status(202).json({message: "Deleted", comment})
+        })
+        .catch(err => {
+            res.status(500).json({message: "Error deleting comment", err})
+        })
+})
+
 module.exports = router
