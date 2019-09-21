@@ -13,8 +13,10 @@ server.use(cors(corsOptions))
 server.options('*', cors())
 
 const usersRouter = require('../users/users-router')
+const storiesRouter = require('../stories/stories-router')
 
 server.use('/users', usersRouter)
+server.use('/stories', storiesRouter)
 
 server.get('/', (req, res) => {
     res.status(200).send('<h2>Refugee Stories</h2>')

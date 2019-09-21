@@ -5,30 +5,41 @@ module.exports = {
     findBy,
     findById,
     add,
-    delete,
+    remove,
     edit
 }
 
 function find() {
-    return null
+    return db('stories')
 }
 
 function findBy(filter) {
-    return null
+    return db('stories').where(filter)
 }
 
 async function add(story) {
-    return null
+    const [id] = await db('stories').insert(story)
+    return findById(id)
 }
 
 function findById(id) {
-    return null
+    return db('stories')
+        .where({id})
+        .first()
 }
 
-function delete(id) {
-    return null
+function remove(id) {
+    const story = findById(id)
+    return db('stories')
+        .where({id})
+        .del()
 }
 
 function edit(changes, id) {
-    return null
+    return db('stories')
+        .where({id})
+        .update(changes)
+        .then(ids => {
+            return findById(id)
+        })
 }
