@@ -9,7 +9,8 @@ module.exports = {
     edit,
     getComments,
     addComment,
-    removeComment
+    removeComment,
+    getCommentById
 }
 
 function find() {
@@ -55,9 +56,15 @@ function getComments(storyId) {
         .orderBy('c.id')
 }
 
-function addComment(comment) {
-    return db('comments as c')
-        .insert(comment)
+function getCommentById(id) {
+    return db('comments')
+        .where({id})
+        .first()
+}
+
+async function addComment(comment) {
+    const [id] = await db('comments').insert(comment)
+    return getCommentById(id)
 }
 
 function removeComment(commentId) {
