@@ -115,7 +115,7 @@ router.get('/:id/comments', (req, res) => {
 })
 
 //requires contents and story_id in the req.body
-//returns a 1 when comment is created
+//returns the created comment
 router.post('/:id/comments', (req, res) => {
     const {id} = req.params
     const commentData = req.body
@@ -129,7 +129,7 @@ router.post('/:id/comments', (req, res) => {
 })
 
 //stories/comments/:id
-//returns 'deleted' and 1 if successful
+//returns 'deleted' and 1 if successful -- deleted and 0 if there was no comment
 router.delete('/comments/:id', (req, res) => {
     const {id} = req.params
 
