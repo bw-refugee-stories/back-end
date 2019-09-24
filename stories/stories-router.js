@@ -2,6 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const secrets = require("../config/secrets");
 const jwt = require("jsonwebtoken");
+const restricted = require('../middleware/restricted-middleware')
 
 const Stories = require("./stories-model");
 
