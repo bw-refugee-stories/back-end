@@ -72,6 +72,32 @@ router.post("/admin/login", (req, res) => {
   }
 });
 
+// https://refu-stories-api.herokuapp.com/users/
+// returns a list of users, mainly for dev stuff
+router.get('/', (req, res) => {
+  Users.get()
+    .then(users => {
+      res.status(200).json(users)
+    })
+    .catch(err => {
+      res.status(500).json({message: "Error getting users", err})
+    })
+})
+
+// https://refu-stories-api.herokuapp.com/users/:id
+// returns a user by id
+router.get('/:id', (req, res) => {
+  let id = req.params.id
+
+  Users.getById(id)
+    .then(user => {
+      res.status(200).json(user)
+    })
+    .catch(err => {
+      res.status(500).json({message: "Error getting user", err})
+    })
+})
+
 function generateToken(user) {
   //header
   //body -> username, id , roles, expiration
