@@ -23,21 +23,55 @@ describe('Stories Router', () => {
             return request(server).get('/stories').then(res => {
                 response = res
                 expect(response.type).toBe('application/json')
-                expect(res.body.length).toBe(4)
+                expect(response.body.length).toBe(4)
             })
         })
     })
 
     // get /:id
+    describe('Get a story by its id', () => {
+        it('should return a story whose id matches the id in the url', () => {
+            const expectedId = 1
+            let response
+            return request(server).get('/stories/1').then(res => {
+                response = res
+                expect(response.body.id).toBe(expectedId)
+            })
+        })
+    })
     // post /
+    describe('add a new story', () => {
+        
+    })
+
     // put /:id
+    describe('edit a story', () => {
+
+    })
+
     // delete
+    describe('remove a story', () => {
+
+    })
 })
 
 
 
 // Comment Tests
 // =============
-// get /:id/comments
-// post /:id/comments
-// delete /comments/:id
+describe('the comments router', () => {
+    // get /:id/comments
+    describe('get a storys comments', () => {
+
+    })
+
+    // post /:id/comments
+    describe('add a comment to a story', () => {
+
+    })
+
+    // delete /comments/:id 
+    describe('delete a comment from a story', () => {
+
+    })
+})

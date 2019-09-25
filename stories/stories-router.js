@@ -41,6 +41,7 @@ router.get('/:id', (req, res) => {
 // https://refu-stories-api.herokuapp.com/stories
 // expects a body with title, contents, and pending.
 // body can also include name, email, and user_id
+// resolves to the newly added story
 
 router.post('/', (req, res) => {
     const storyData = req.body
