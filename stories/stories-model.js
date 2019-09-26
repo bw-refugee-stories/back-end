@@ -10,7 +10,8 @@ module.exports = {
     getComments,
     addComment,
     removeComment,
-    getCommentById
+    getCommentById,
+    getPendingStories,
 }
 
 function find() {
@@ -71,4 +72,9 @@ function removeComment(commentId) {
     return db('comments')
         .where({id: commentId})
         .del()
+}
+
+function getPendingStories() {
+    return db('stories')
+        .where({pending: 1})
 }

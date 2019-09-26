@@ -38,9 +38,22 @@ router.get('/:id', (req, res) => {
         })
 })
 
+// https://refu-stories-api.herokuapp.com/stories/a/pending
+// returns a list of pending stories
+router.get('/a/pending', restricted, (req, res) => {
+    Stories.getPendingStories()
+        .then(stories => {
+            res.status(200).json(stories)
+        })
+        .catch(err => {
+            res.status(500).json({message: "Error getting pending stories", err})
+        })
+})
+
 // https://refu-stories-api.herokuapp.com/stories
 // expects a body with title, contents, and pending.
 // body can also include name, email, and user_id
+// resolves to the newly added story
 
 router.post('/', (req, res) => {
     const storyData = req.body
