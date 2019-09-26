@@ -38,8 +38,8 @@ router.get('/:id', (req, res) => {
         })
 })
 
-// https://refu-stories-api.herokuapp.com/stories/a/pending
-// returns a list of pending stories
+// https://refu-stories-apiherokuapp.com/stories/a/pending
+// returns a list of pending stories.
 router.get('/a/pending', restricted, (req, res) => {
     Stories.getPendingStories()
         .then(stories => {
@@ -69,8 +69,7 @@ router.post('/', (req, res) => {
 })
 
 // https://refu-stories-api.herokuapp.com/stories/:id
-// expects a body with title, contents, and pending.
-// body can also include name, email, and user_id
+// expects a body with contents, and story_id
 
 router.put('/:id', (req, res) => {
     const {id} = req.params
