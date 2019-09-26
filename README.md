@@ -10,10 +10,7 @@ Refugee Stories (Server)
 ## Motivation
 People visiting the site will gain a better understanding of the refugee crisis and what it means to be a refugee. There are more people displaced in the world today than at any time since the end of World War II and it is more important than ever to help people develop empathy for each other.
 
-## Code style
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-
-<b>Built with</b>
+# <b>Built with</b>
 - [Node.js](https://nodejs.org)
 - [Express](https://expressjs.com/)
 
