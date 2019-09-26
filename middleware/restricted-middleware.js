@@ -23,8 +23,10 @@ module.exports = (req, res, next) => {
         req.decodedToken = decodedToken
         console.log('verified: ', decodedToken)
         if (decodedToken.role != 'admin') {
+          //user doesn't have admin access
           res.status(400).json({message: "Access Denied"})
         } else {
+          //user is admin
           next()
         }
       }
