@@ -22,7 +22,11 @@ module.exports = (req, res, next) => {
         //token is valid and not expired
         req.decodedToken = decodedToken
         console.log('verified: ', decodedToken)
-        next()
+        if (decodedToken.role != 'admin') {
+          res.status(400).json({message: "Access Denied"})
+        } else {
+          next()
+        }
       }
     })
   } else {
