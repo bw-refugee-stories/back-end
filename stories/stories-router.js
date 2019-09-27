@@ -127,8 +127,8 @@ router.get('/:id/comments', (req, res) => {
         })
 })
 
-//requires contents and story_id in the req.body
-//returns the created comment
+// requires contents and story_id in the req.body
+// returns the created comment
 router.post('/:id/comments', (req, res) => {
     const {id} = req.params
     const commentData = req.body
