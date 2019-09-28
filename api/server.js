@@ -8,6 +8,9 @@ server.use(express.json())
 server.use(helmet())
 var corsOptions = {
     credentials: true,
+    origin: true,
+    preflightContinue: true,
+    allowedHeaders: 'Content-Type, authorization'
 }
 server.use(cors(corsOptions))
 server.options('*', cors())

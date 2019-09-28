@@ -51,4 +51,16 @@ describe('login/registration server', () => {
             })
         })
     })
+
+    describe('authentication', () => {
+        const userData = {username: 'user', password: 'pass'}
+
+        beforeEach(async () => {
+            await db('users').truncate()
+        })
+
+        it('should return a matching token', async () => {
+            
+        })
+    })
 })

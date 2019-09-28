@@ -44,39 +44,4 @@ describe('Stories Router', () => {
             })
         })
     })
-    // post /
-    describe('add a new story', () => {
-        
-    })
-
-    // put /:id
-    describe('edit a story', () => {
-
-    })
-
-    // delete
-    describe('remove a story', () => {
-
-    })
-})
-
-
-
-// Comment Tests
-// =============
-describe('the comments router', () => {
-    // get /:id/comments
-    describe('get a storys comments', () => {
-
-    })
-
-    // post /:id/comments
-    describe('add a comment to a story', () => {
-
-    })
-
-    // delete /comments/:id 
-    describe('delete a comment from a story', () => {
-
-    })
 })
